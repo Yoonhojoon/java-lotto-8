@@ -152,7 +152,7 @@ class InputParserTest {
             String input = "1000";
 
             // when
-            int result = inputParser.parsePurchaseCost(input);
+            int result = inputParser.validatePurchaseCost(input);
 
             // then
             assertThat(result).isEqualTo(1000);
@@ -165,7 +165,7 @@ class InputParserTest {
             String input = "1001";
 
             // when & then
-            assertThatThrownBy(() -> inputParser.parsePurchaseCost(input))
+            assertThatThrownBy(() -> inputParser.validatePurchaseCost(input))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage("[ERROR] 구입 금액은 1,000원 단위여야 합니다.");
         }
@@ -177,7 +177,7 @@ class InputParserTest {
             String input = "0";
 
             // when & then
-            assertThatThrownBy(() -> inputParser.parsePurchaseCost(input))
+            assertThatThrownBy(() -> inputParser.validatePurchaseCost(input))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage("[ERROR] 구입 금액은 0원 이상이어야 합니다.");
         }
@@ -189,7 +189,7 @@ class InputParserTest {
             String input = "-1000";
 
             // when & then
-            assertThatThrownBy(() -> inputParser.parsePurchaseCost(input))
+            assertThatThrownBy(() -> inputParser.validatePurchaseCost(input))
                     .isInstanceOf(IllegalArgumentException.class)
                     .hasMessage("[ERROR] 구입 금액은 0원 이상이어야 합니다.");
         }
@@ -201,7 +201,7 @@ class InputParserTest {
             String input = "abc";
 
             // when & then
-            assertThatThrownBy(() -> inputParser.parsePurchaseCost(input))
+            assertThatThrownBy(() -> inputParser.validatePurchaseCost(input))
                     .isInstanceOf(NumberFormatException.class);
         }
     }

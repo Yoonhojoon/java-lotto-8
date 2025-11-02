@@ -28,4 +28,15 @@ public class InputParser {
             throw new IllegalArgumentException("[ERROR] 당첨 번호는 중복되지 않아야 합니다.");
         }
     }
+
+    public int validatePurchaseCost(String input) {
+        int purchaseCost = Integer.parseInt(input);
+        if (purchaseCost % 1000 != 0) {
+            throw new IllegalArgumentException("[ERROR] 구입 금액은 1,000원 단위여야 합니다.");
+        }
+        if (purchaseCost <= 0) {
+            throw new IllegalArgumentException("[ERROR] 구입 금액은 0원 이상이어야 합니다.");
+        }
+        return purchaseCost;
+    }
 }
