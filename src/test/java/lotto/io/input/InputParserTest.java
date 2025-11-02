@@ -133,11 +133,11 @@ class InputParserTest {
             // given
             String input = "1, 2, 3, 4, 5, 6";
 
-            // when & then
-            // 현재 구현은 공백을 처리하지 않으므로 NumberFormatException 발생
-            // 향후 trim() 추가 시 이 테스트 수정 필요
-            assertThatThrownBy(() -> inputParser.parseWinningNumbers(input))
-                    .isInstanceOf(NumberFormatException.class);
+            // when
+            List<Integer> result = inputParser.parseWinningNumbers(input);
+
+            // then
+            assertThat(result).containsExactly(1, 2, 3, 4, 5, 6);
         }
     }
 
