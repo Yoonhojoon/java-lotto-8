@@ -1,7 +1,7 @@
 package lotto.io.output;
 
 public class OutputView {
-    public void printPurchasePrice() { System.out.println("구입금액을 입력해 주세요."); }
+    public void printPurchaseCost() { System.out.println("구입금액을 입력해 주세요."); }
 
     public void printPurchaseAmount(int purchaseNum) {System.out.println(purchaseNum + "개를 구매했습니다.");}
 
