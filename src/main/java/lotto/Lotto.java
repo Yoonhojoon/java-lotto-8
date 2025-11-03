@@ -19,5 +19,17 @@ public class Lotto {
         }
     }
 
-    // TODO: 추가 기능 구현
+    public int countMatchingNumbers(List<Integer> otherNumbers) {
+        int count = 0;
+        for (Integer n : otherNumbers) {
+            if (numbers.contains(n)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public boolean containsNumber(int number) {
+        return numbers.contains(number);
+    }
 }
