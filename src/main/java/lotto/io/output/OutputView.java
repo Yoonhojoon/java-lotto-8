@@ -1,9 +1,10 @@
 package lotto.io.output;
 
-import lotto.Lotto;
-import lotto.result.Rank;
 import java.util.List;
 import java.util.Map;
+
+import lotto.Lotto;
+import lotto.result.Rank;
 
 public class OutputView {
     public void printPurchaseCost() { System.out.println("구입금액을 입력해 주세요."); }
@@ -34,5 +35,9 @@ public class OutputView {
 
     public void printTotalReturnStatus(double returnRatePercent) {
         System.out.println("총 수익률은 " + String.format("%.1f", returnRatePercent) + "%입니다.");
+    }
+
+    public void printError(String message) {
+        System.out.println(message);
     }
 }
