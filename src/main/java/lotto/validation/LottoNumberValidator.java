@@ -33,6 +33,15 @@ public final class LottoNumberValidator {
             throw new IllegalArgumentException("[ERROR] 보너스 번호는 당첨 번호와 중복될 수 없습니다.");
         }
     }
+
+    public static void validatePurchaseCost(int purchaseCost) {
+        if (purchaseCost % 1000 != 0) {
+            throw new IllegalArgumentException("[ERROR] 구입 금액은 1,000원 단위여야 합니다.");
+        }
+        if (purchaseCost <= 0) {
+            throw new IllegalArgumentException("[ERROR] 구입 금액은 0원 이상이어야 합니다.");
+        }
+    }
 }
 
 

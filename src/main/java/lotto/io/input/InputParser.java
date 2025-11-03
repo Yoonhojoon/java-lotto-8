@@ -22,12 +22,7 @@ public class InputParser {
 
     public int validatePurchaseCost(String input) {
         int purchaseCost = Integer.parseInt(input);
-        if (purchaseCost % 1000 != 0) {
-            throw new IllegalArgumentException("[ERROR] 구입 금액은 1,000원 단위여야 합니다.");
-        }
-        if (purchaseCost <= 0) {
-            throw new IllegalArgumentException("[ERROR] 구입 금액은 0원 이상이어야 합니다.");
-        }
+        LottoNumberValidator.validatePurchaseCost(purchaseCost);
         return purchaseCost;
     }
 }
