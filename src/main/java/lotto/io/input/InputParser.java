@@ -21,7 +21,7 @@ public class InputParser {
     }
 
     public int validatePurchaseCost(String input) {
-        int purchaseCost = Integer.parseInt(input); // NumberFormatException 유지 (테스트 기대)
+        int purchaseCost = Integer.parseInt(input);
         LottoNumberValidator.validatePurchaseCost(purchaseCost);
         return purchaseCost;
     }
