@@ -42,6 +42,17 @@ public final class LottoNumberValidator {
             throw new IllegalArgumentException("[ERROR] 구입 금액은 0원 이상이어야 합니다.");
         }
     }
+
+    public static int parsePurchaseCost(String input) {
+        int purchaseCost;
+        try {
+            purchaseCost = Integer.parseInt(input);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("[ERROR] 구입 금액은 숫자여야 합니다.", e);
+        }
+        validatePurchaseCost(purchaseCost);
+        return purchaseCost;
+    }
 }
 
 

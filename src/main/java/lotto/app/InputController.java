@@ -22,8 +22,8 @@ public class InputController {
             try {
                 String input = InputView.read();
                 return inputParser.validatePurchaseCost(input);
-            } catch (RuntimeException e) {
-                outputView.printError(e.getMessage());
+            } catch (IllegalArgumentException | IllegalStateException e) {
+                outputView.printError(formatError(e));
             }
         }
     }
@@ -34,8 +34,8 @@ public class InputController {
             try {
                 String input = InputView.read();
                 return inputParser.parseWinningNumbers(input);
-            } catch (RuntimeException e) {
-                outputView.printError(e.getMessage());
+            } catch (IllegalArgumentException | IllegalStateException e) {
+                outputView.printError(formatError(e));
             }
         }
     }
@@ -48,11 +48,20 @@ public class InputController {
                 int bonus = Integer.parseInt(input);
                 LottoNumberValidator.validateBonus(bonus, winningNumbers);
                 return bonus;
-            } catch (RuntimeException e) {
-                outputView.printError(e.getMessage());
+            } catch (IllegalArgumentException | IllegalStateException e) {
+                outputView.printError(formatError(e));
             }
         }
     }
+
+    private String formatError(RuntimeException e) {
+        String msg = e.getMessage();
+        if (msg != null && msg.startsWith("[ERROR]")) {
+            return msg;
+        }
+        return "[ERROR] " + (msg == null ? "알 수 없는 오류가 발생했습니다." : msg);
+    }
 }
+
 
 
